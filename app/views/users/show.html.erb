@@ -1,3 +1,16 @@
+<div>
+  <h2>Hello <%= @user.name %>!</h2>
+</div>
 
-	<p>user show page</p>
-	
+<h2>Wikis</h2>
+<table class="table"> 
+<thead>
+	<th>Wiki</th>
+</thead>
+	<tr><%= render @user.wikis %></tr>
+</table>
+
+<% if @user == current_user %>
+	<%= render 'wikis/form' %>
+<% end %>
+
