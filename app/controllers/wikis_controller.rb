@@ -20,6 +20,8 @@ class WikisController < ApplicationController
 
   # GET /wikis/1/edit
   def edit
+    @post = Post.find(params[:id])
+
   end
 
   # POST /wikis
