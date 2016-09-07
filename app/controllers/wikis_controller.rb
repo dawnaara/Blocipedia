@@ -11,6 +11,7 @@ class WikisController < ApplicationController
   # GET /wikis/1.json
   def show
     @wiki = Wiki.find(params[:id])
+
   end
 
   # GET /wikis/new
@@ -20,7 +21,7 @@ class WikisController < ApplicationController
 
   # GET /wikis/1/edit
   def edit
-    @post = Post.find(params[:id])
+    @wiki = Wiki.find(params[:id])
 
   end
 
@@ -74,4 +75,5 @@ class WikisController < ApplicationController
     def wiki_params
       params.require(:wiki).permit(:title, :body, :private, :user_id)
     end
+
 end
