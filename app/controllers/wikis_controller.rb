@@ -10,8 +10,6 @@ class WikisController < ApplicationController
   # GET /wikis/1
   # GET /wikis/1.json
   def show
-    @wiki = Wiki.find(params[:id])
-
   end
 
   # GET /wikis/new
@@ -21,14 +19,12 @@ class WikisController < ApplicationController
 
   # GET /wikis/1/edit
   def edit
-    @wiki = Wiki.find(params[:id])
-
   end
 
   # POST /wikis
   # POST /wikis.json
   def create
-    @wiki = Wiki.new(wiki_params)
+    @wiki = current_user.wikis.new(wiki_params)
 
     respond_to do |format|
       if @wiki.save
@@ -73,7 +69,7 @@ class WikisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wiki_params
-      params.require(:wiki).permit(:title, :body, :private, :user_id)
+      params.require(:wiki).permit(:title, :body, :private)
     end
 
 end

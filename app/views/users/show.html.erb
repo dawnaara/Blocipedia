@@ -3,4 +3,13 @@
 </div>
 
 <h2>New Wiki</h2>
-<%= render 'wikis/form' %>
+	<table class="table"> 
+	<thead>
+		<th>Wiki</th>
+	</thead>
+		<%= render @user.wikis %>
+	</table>
+
+<% if @user == current_user %>
+	<%= render 'wikis/form' %>
+<% end %>
