@@ -15,6 +15,7 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'pundit', '~> 1.1'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faker', '~> 1.6', '>= 1.6.6'
+gem 'stripe', '~> 1.54'
 
 group :development, :test do
   gem 'byebug'
