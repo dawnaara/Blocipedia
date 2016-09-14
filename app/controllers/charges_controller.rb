@@ -1,4 +1,12 @@
 class ChargesController < ApplicationController
+
+	def downgrade
+		current_user.standard!
+		current_user.wikis.update_all(:private, false)
+
+		redirect_to user_path(current_user) 
+	end
+
   def create
 
    # Creates a Stripe Customer object, for associating
