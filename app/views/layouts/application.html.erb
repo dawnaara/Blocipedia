@@ -18,11 +18,13 @@
     <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link' %>
   <% end %>
 
-  <% if current_user.standard? %>
-    Register for a free <%= link_to "Premium", new_charge_path %> account.
-  <% else %>
-    <%= link_to "downgrade", downgrade_path %>
-  <% end %> 
+  <% if current_user %>
+    <% if current_user.standard? %>
+      Register for a free <%= link_to "Premium", new_charge_path %> account.
+    <% else %>
+      <%= link_to "Downgrade Plan", downgrade_path %>
+    <% end %> 
+  <% end %>
 
   <div class="flash">
     <% if flash[:notice] %>
